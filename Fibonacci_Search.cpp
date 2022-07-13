@@ -1,21 +1,23 @@
 #include<iostream>
 using namespace std;
 
+
 int Fibonacci_Search(int array[], int size, int value)
 {
-    int fib2 = 0;
-    int fib1 = 1;
-    int fib = fib1 + fib2;
+    int fib,fib1,fib2,offset,i;
+    fib2 = 0;
+    fib1 = 1;
+    fib = fib1 + fib2;
     while (fib <= size)
     {
         fib2 = fib1;
         fib1 = fib;
         fib = fib1 + fib2;
     }
-    int offset = -1;
+    offset = -1;
     while (fib > 1)
     {
-        int i = offset + fib2;
+        i = offset + fib2;
         if (array[i] < value)
         {
             fib = fib1;
@@ -34,21 +36,32 @@ int Fibonacci_Search(int array[], int size, int value)
             return i;
         }
     }
+    return -1;
 }
 
 int main()
 {
-    int a[] = { 10,20,30,40,50,60,70,80 };
-    int value;
-    cout << "Enter the value to be searched : ";
+    int size,value;
+    cout << "Enter the size of your array : ";
+    cin >> size;
+    
+    int array[100];
+    cout << "Enter the elements in sorted order : " << endl;
+    for (int i = 0;i < size;i++)
+    {
+        cin >> array[i];
+    }
+    cout << "Enter the key value to be searched : ";
     cin >> value;
-    int result = Fibonacci_Search(a, 8, value);
+
+    int result = Fibonacci_Search(array, size, value);
     if (result >= 0)
     {
-        cout << "The number " << a[result] << " was found at position " << result + 1;
+        cout << "The number was " << array[result] << " found at position " << result + 1<<endl;
     }
     else
     {
         cout << "The number " << value << " not found!!" << endl;
     }
+    return 0;
 }

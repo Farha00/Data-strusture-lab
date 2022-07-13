@@ -5,9 +5,10 @@ int Binary_Search(int array[], int size, int value)
 {
     int beg = 0;
     int end = size - 1;
+    int mid;
     while (beg <= end)
     {
-        int mid = (beg + end) / 2;
+        mid = (beg + end) / 2;
         if (array[mid] == value)
         {
             return mid;
@@ -21,21 +22,32 @@ int Binary_Search(int array[], int size, int value)
             beg = mid + 1;
         }
     }
+return -1;
 }
 
 int main()
 {
-    int a[] = { 10,20,30,40,50,60,70,80 };
-    int value;
-    cout << "Enter the value to be searched : ";
+    int size,value;
+    cout << "Enter the size of your array : ";
+    cin >> size;
+    
+    int array[100];
+    cout << "Enter the elements in sorted order : " << endl;
+    for (int i = 0;i < size;i++)
+    {
+        cin >> array[i];
+    }
+    cout << "Enter the key value to be searched : ";
     cin >> value;
-    int result = Binary_Search(a, 8, value);
+
+    int result = Binary_Search(array, size, value);
     if (result >= 0)
     {
-        cout << "The number " << a[result] << " was found at position " << result + 1;
+        cout << "The number was " << array[result] << " found at position " << result + 1;
     }
     else
     {
         cout << "The number " << value << " not found!!" << endl;
     }
+    return 0;
 }
