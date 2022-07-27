@@ -19,7 +19,7 @@ void substring(char* str, int pos, int L)
 int main()
 {
     int p, l;
-    int option = 1;
+    int ch = 1;
     char str[30];
     do {
         cout << "Enter the string : ";
@@ -33,8 +33,8 @@ int main()
         cout << "\n";
         cout << "Do you want to continue ? " << endl;
         cout << "1:Yes\n2:No\nEnter your choice : ";
-        cin >> option;
+        cin >> ch;
         cout << "\n";
-    } while (option != 2);
+    } while (ch != 2);
 
 }
